@@ -18,6 +18,7 @@ class AssociatesController < ApplicationController
   def create
     @associate = Associate.new(params[:associate])
     if @associate.save
+      sign_in @associate
       flash[:success] = "Welcome to Daversa Partners!"
       redirect_to @associate
     else
