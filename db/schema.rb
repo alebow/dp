@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130529025448) do
+ActiveRecord::Schema.define(:version => 20130603013327) do
 
   create_table "associates", :force => true do |t|
     t.string   "name"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20130529025448) do
     t.string   "country_code"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "name"
   end
 
   create_table "searches", :force => true do |t|
@@ -74,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20130529025448) do
     t.integer  "associate_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "full_title"
   end
 
 end

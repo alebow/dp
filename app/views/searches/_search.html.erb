@@ -1,0 +1,9 @@
+<tr>
+	<td><%= link_to search.company.name, search.company %></td>
+	<td><%= link_to search.full_title, search %></td>
+	<td><%= link_to 'Show', search %></td>
+	<td><%= link_to 'Edit', edit_search_path(search) %></td>
+	<td><%= link_to 'Delete', search, method: :delete, data: { confirm: "You sure?" } %></td>
+	<td></td>
+</tr>
+

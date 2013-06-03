@@ -1,2 +1,18 @@
 <% provide(:title, 'All Locations') %>
 <h1>All Locations</h1>
+<table class="table table-striped">
+	<thead>
+		<th>Name</th>
+		<th>Address</th>
+		<th>Address 2</th>
+		<th>City</th>
+		<th>State</th>
+		<th>Zip Code</th>
+		<th>Country</th>
+		<th>Phone</th>
+	</thead>
+
+	<tbody>
+		<%= render @locations %>
+	</tbody>
+</table>

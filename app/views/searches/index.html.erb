@@ -1,2 +1,12 @@
 <% provide(:title, 'Searches') %>
 <h1>All Searches</h1>
+<table class="table table-striped">
+	<thead>
+		<th>Client</th>
+		<th>Position</th>
+	</thead>
+
+	<tbody>
+		<%= render @searches %>
+	</tbody>
+</table>

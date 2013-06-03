@@ -2,10 +2,11 @@
 <h1>Sign in</h1>
 
 <%= simple_form_for(:session, url: sessions_path, :html => { class: 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
   <%= f.input :email %>
   <%= f.input :password %>
   <%= f.button :submit, label: 'Sign In', class: "btn btn-primary" %>
 
-  <%= f.error_notification %>
+
 
 <% end %>

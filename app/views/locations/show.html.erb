@@ -1,1 +1,26 @@
 <% provide(:title, 'Location') %>
+<h1><%= @location.name %></h1>
+<table class="table table-active">
+	<thead>
+		<th>HQ?</th>
+		<th>Name</th>
+		<th>Address</th>
+		<th>Address 2</th>
+		<th>City</th>
+		<th>State</th>
+		<th>Zip Code</th>
+		<th>Country</th>
+		<th>Phone</th>
+	</thead>
+	<tbody>
+		<td><%= @location.headquarters? %></td>
+		<td><%= @location.name %></td>
+		<td><%= @location.address %></td>
+		<td><%= @location.address_2 %></td>
+		<td><%= @location.city %></td>
+		<td><%= @location.state %></td>
+		<td><%= @location.zip_code %></td>
+		<td><%= @location.country %></td>
+		<td><%= @location.phone_number %></td>
+	</tbody>
+</table>

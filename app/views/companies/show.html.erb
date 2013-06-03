@@ -1,1 +1,64 @@
 <% provide(:title, @company.name) %>
+<h1><%= @company.name %></h1>
+<div class="well">
+<table class="table table-hover">
+	<thead>
+		<th>Name</th>
+		<th>URL</th>
+		<th>Description</th>
+		<th></th>
+	</thead>
+	<tbody>
+		<td><%= link_to @company.name, @company %></td>
+		<td><%= @company.website %></td>
+		<td><%= @company.short_description %></td>
+		<% if current_associate.admin? %>
+			<td><%= link_to 'Edit', edit_company_path(@company) %></td>
+	    <td><%= link_to 'Delete', @company, method: :delete, data: { confirm: "You sure?" } %></td>
+  	<% end %>
+	</tbody>
+</table>
+</div>
+
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">Searches</a></li>
+    <li><a href="#tab2" data-toggle="tab">Locations</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+    	<% if !@company.searches.empty? %>
+      <table class="table table-striped">
+				<thead>
+					<th>Company</th>
+					<th>Position</th>
+				</thead>
+				<tbody>
+					<%= render @searches %>
+				</tbody>
+			</table>
+			<% end %>
+    </div>
+    <div class="tab-pane" id="tab2">
+    	<% if !@company.locations.empty? %>
+      <table class="table table-striped">
+      	<thead>
+					<th>Name</th>
+					<th>Address</th>
+					<!--<th>Address 2</th>-->
+					<th>City</th>
+					<th>State</th>
+					<th>Zip Code</th>
+					<th>Country</th>
+					<th>Phone</th>
+				</thead>
+				<tbody>
+					<%= render @locations %>
+				</tbody>
+			</table>
+			<% else %>
+				<%= link_to 'You must add a location.', new_location_path %>
+			<% end %>
+    </div>
+  </div>
+</div>

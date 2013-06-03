@@ -1,2 +1,66 @@
 <% provide(:title, @group.name) %>
 <h1><%= @group.nickname %></h1>
+
+<!--<table class="table table-striped">
+	<thead>
+		<th>Name</th>
+	</thead>
+
+	<tbody>
+		<%= render @associates %>
+	</tbody>
+</table>-->
+
+<div class="tabbable"> <!-- Only required for left/right tabs -->
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#tab1" data-toggle="tab">Team Members (<%= @group.associates.count %>)</a></li>
+    <li><a href="#tab2" data-toggle="tab">Team Searches (<%= @group.searches.count %>)</a></li>
+    <li><a href="#tab3" data-toggle="tab">Team Analytics</a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="tab1">
+    	<% if !@group.associates.empty? %>
+      <table class="table table-striped">
+				<thead>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Team</th>
+				</thead>
+				<tbody>
+					<%= render @associates %>
+				</tbody>
+			</table>
+			<% else %>
+				<%= link_to 'You must add an associate', signup_path %>
+			<% end %>
+    </div>
+    <div class="tab-pane" id="tab2">
+    	<% if !@group.searches.empty? %>
+      <table class="table table-striped">
+				<thead>
+					<th>Name</th>
+					<th>Position</th>
+				</thead>
+				<tbody>
+					<%= render @searches %>
+				</tbody>
+			</table>
+			<% else %>
+				<%= link_to 'You must add a search.', new_search_path %>
+			<% end %>
+    </div>
+    <div class="tab-pane" id="tab3">
+      <h1><%= @group.nickname %>'s Analytics</h1>
+	      <div class="row span4">
+	      	<div class="well">
+	      		<P>WELL 1</p>
+	      	</div>
+	      </div>
+	      <div class="row span4">
+	      	<div class="well">
+	      		<P>WELL 1</p>
+	      	</div>
+	      </div>
+    </div>
+  </div>
+</div>

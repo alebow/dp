@@ -1,0 +1,10 @@
+<tr>
+	<td><%= link_to company.name, company %></td>
+	<td><%= company.website %></td>
+	<td><%= company.short_description %></td>
+	<td><%= link_to 'Show', company %></td>
+	<% if current_associate.admin? %>
+		<td><%= link_to 'Edit', edit_company_path(company) %></td>
+    <td><%= link_to 'Delete', company, method: :delete, data: { confirm: "You sure?" } %></td>
+  <% end %>
+</tr>

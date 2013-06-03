@@ -1,2 +1,7 @@
 <% provide(:title, @search.position) %>
-<h1><%= @search.company.name %> </h1>
+<h1><%= link_to @search.company.name, @search.company %></h1>
+<h3><%= @search.full_title %></h3>
+
+<div class="well">
+	<p>This is where we will put search data.</p>
+</div>
